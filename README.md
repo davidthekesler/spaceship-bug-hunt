@@ -1,6 +1,6 @@
 # Spaceship Bug Hunt
 
-Before you get started, follow the **setup** instructions below to add some starter data to the database. Seven bugs have been introduced to the application. You should only need to modify **one line** of code per bug. Most of the bugs will throw an error in the client or server.
+Before you get started, follow the **setup** instructions below to add some starter data to your database. Seven bugs have been introduced to the application. You should only need to modify **one line** of code per bug. Most of the bugs will throw an error in the client or server.
 
 Start by getting the server working, then move on to the **Crew** page. Fix all bugs on the **Crew** page before moving on to the **Ships** page. Consider bugs on the **Ships** page to be stretch goals. 
 
