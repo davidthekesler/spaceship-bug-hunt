@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     console.log('GET /ships');
     pool.query(`SELECT "s".*, count("c") as "current_crew" 
-                FROM "ships" as "s" JOIN "crew" as "c" 
+                FROM "ships" as "s" LEFT JOIN "crew" as "c" 
                 ON "s"."id" = "c"."ship_id"
                 GROUP BY "s"."id";`)
         .then(result => {
