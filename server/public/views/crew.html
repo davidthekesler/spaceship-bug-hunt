@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Crew Assignments</h2>
+
+    <form ng-submit="vm.addCrewMember(vm.crewToAdd)">
+        <input type="text" placeholder="name" ng-model="vm.crewToAdd.name">
+        <input type="text" placeholder="role" ng-model="vm.crewToAdd.role">
+        <select ng-model="vm.crewToAdd.ship_id">
+            <!-- not selected / blank option -->
+            <option value="">---Please select---</option>
+            <!-- repeat over ships -->
+            <option ng-repeat="ship in vm.ships.list" value="{{ship.id}}">{{ship.name}}</option>
+        </select>
+        <input type="submit">
+    </form>
+
+    <div>
+        <div class="float-left" ng-repeat="assignment in vm.assignments.list">
+            <h4>{{assignment.crew_name}}</h4>
+            <p>Role: {{assignment.role}}</p>
+            <p>{{assignment.ship_name}}</p>
+            <button ng-click="vm.removeCrewMember(assignment.crew_id)">Delete</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEAN Space Station</title>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="/vendors/angular.js"></script>
+    <script src="/vendors/angular-route.js"></script>
+
+    <script src="/scripts/client.js"></script>
+
+    <script src="/scripts/services/spaceship.service.js"></script>
+
+    <script src="/scripts/controllers/crew.controller.js"></script>
+    <script src="/scripts/controllers/ship.controller.js"></script>
+</head>
+
+<body ng-app="SpaceShipApp">
+    <h1>Space Station</h1>
+    <div class="nav">
+        <ul>
+            <li>
+                <a ng-href="#!/crew">Crew</a>
+            </li>
+            <li>
+                <a ng-href="#!/ships">Ships</a>
+            </li>
+        </ul>
+    </div>
+    
+    <ng-view></ng-view>
+</body>
+
+</html>

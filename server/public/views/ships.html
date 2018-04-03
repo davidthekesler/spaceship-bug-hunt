@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Space Ships</h2>
+
+    <form ng-submit="vm.addShip(vm.shipToAdd)">
+        <input type="text" placeholder="name" ng-model="vm.shipToAdd.name">
+        <input type="number" placeholder="max crew" ng-model="vm.shipToAdd.max_crew"> 
+        <input type="submit">
+    </form>
+    <div>
+        <div ng-hide="vm.ships.length">No items found. That seems odd... Angular black magic?</div>
+
+        <div class="float-left" ng-repeat="ship in vm.ships">
+            <h4>{{ship.name}}</h4>
+            <p>Crew: {{ship.current_crew}} / {{ship.max_crew}}</p>
+            <button ng-click="vm.removeShip(ship)">Delete</button>
+        </div>
+    </div>
+</div>
+
