@@ -1,6 +1,7 @@
 <div class="container">
     <h2>Crew Assignments</h2>
 
+    <h3 ng-show="vm.editing">Editing {{vm.crewToAddd.name}}</h3>
     <form ng-submit="vm.addCrewMember(vm.crewToAdd)">
         <input type="text" placeholder="name" ng-model="vm.crewToAdd.name">
         <input type="text" placeholder="role" ng-model="vm.crewToAdd.role">
@@ -16,9 +17,10 @@
     <div>
         <div class="float-left" ng-repeat="assignment in vm.assignments.list">
             <h4>{{assignment.crew_name}}</h4>
-            <p>Role: {{assignment.role}}</p>
+            <p>Role: {{assignment.crew_role}}</p>
             <p>{{assignment.ship_name}}</p>
             <button ng-click="vm.removeCrewMember(assignment.crew_id)">Delete</button>
+            <button ng-click="vm.editCrewMember(assignment)">Edit</button>
         </div>
     </div>
 </div>

@@ -7,9 +7,9 @@
         <input type="submit">
     </form>
     <div>
-        <div ng-hide="vm.ships.length">No items found. That seems odd... Angular black magic?</div>
+        <div ng-hide="vm.ships.list.length">No items found. That seems odd... Angular black magic?</div>
 
-        <div class="float-left" ng-repeat="ship in vm.ships">
+        <div class="float-left" ng-repeat="ship in vm.ships.list">
             <h4>{{ship.name}}</h4>
             <p>Crew: {{ship.current_crew}} / {{ship.max_crew}}</p>
             <button ng-click="vm.removeShip(ship)">Delete</button>

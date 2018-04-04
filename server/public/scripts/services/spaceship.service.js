@@ -1,4 +1,4 @@
-app.service('SpaceShipService', [function() {
+app.service('SpaceShipService', ['$http', function($http) {
     console.log('SpaceShipService has been loaded');
     const self = this;
 
@@ -13,7 +13,7 @@ app.service('SpaceShipService', [function() {
             url: '/ships',
             data: shipToAdd
         }).then((response) => {
-            alert('Success! Try refreshing the page?!?');
+            // alert('Success! Try refreshing the page?!?');
             self.getShips();
         }).catch((error) => {
             console.log('error making rent get request', error);
@@ -40,10 +40,10 @@ app.service('SpaceShipService', [function() {
     self.deleteShip = function(shipId) {
         $http({
             method: 'DELETE',
-            url: `/ships/${shipId}`
+            url: `/ships/` + shipId
         }).then((response) => {
             self.getShips();
-            alert('Success! Try refreshing the page?!?');
+            // alert('Success! Try refreshing the page?!?');
         }).catch((error) => {
             console.log('error making rent get request', error);
             alert('Something went wrong! Check the server.');

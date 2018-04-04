@@ -2,7 +2,7 @@ app.controller('SpaceShipController', ['SpaceShipService', function (SpaceShipSe
     console.log('SpaceShipController has been loaded');
     const self = this;
 
-    self.ships = SpaceShipService.ships.list;
+    self.ships = SpaceShipService.ships;
 
     self.addShip = function(ship) {
         SpaceShipService.addShip(ship);

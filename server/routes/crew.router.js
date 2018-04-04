@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 router.post('/', (req, res) => {
     console.log('POST /crew', req.body);
     const crewMember = req.body;
-    const queryText = `INSERT INTO 'crew' ('name', 'role', 'ship_id') 
+    const queryText = `INSERT INTO "crew" ("name", "role", "ship_id") 
                        VALUES ($1, $2, $3);`;
     pool.query(queryText, [crewMember.name, crewMember.role, crewMember.ship_id])
         .then((result) => {
@@ -21,10 +21,12 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     console.log('GET /crew');
     const queryText = `SELECT "c"."name" as "crew_name", 
+                                "c"."role" as "crew_role", 
                               "c"."id" as "crew_id", 
+                              "s"."id" as "ship_id",
                               "s"."name" as "ship_name"
                        FROM "crew" as "c" JOIN "ships" as "s" 
-                       ON "c"."ship_id" = "s"."id";`;
+                       ON "c"."ship_id" = "s"."id"`;
     pool.query(queryText).then(result => {
         res.send(result.rows);
     }).catch(error => {
@@ -37,7 +39,8 @@ router.get('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     console.log('DELETE /crew');
     const crewMemberId = req.params.id;
-    pool.query('DELETE FROM "crew" WHERE "id"=$1;', [$1])
+    const queryText = 'DELETE FROM "crew" WHERE "id" = $1';
+    pool.query(queryText,[crewMemberId])
         .then((result) => {
             res.sendStatus(200);
         })
@@ -47,4 +50,4 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-modules.export = router; // What module should we be exports'ing?
+module.exports = router; // What module should we be exports'ing?
